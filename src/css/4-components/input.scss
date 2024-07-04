@@ -1,0 +1,32 @@
+.input {
+    background-color: rgb(var(--input-bg-color));
+    border: var(--input-border-width) solid rgb(var(--input-border-color));
+    border-radius: var(--input-border-radius);
+    box-shadow: var(--input-box-shadow);
+    color: var(--input-text-color);
+    display: block;
+    font-family: var(--font-1);
+    font-size: var(--font-size-m);
+    padding: .75rem;
+    transition: var(--duration-m) ease;
+    width: 100%;
+
+    &[type=email],
+    &[type=text],
+    &[type=password] {
+        height: 3rem;
+        padding: 0 .75rem;
+    }
+
+    &:focus {
+        background-color: rgb(var(--input-bg-color-focus));
+        border: var(--input-border-width-focus) solid rgb(var(--input-border-color-focus));
+        box-shadow: var(--input-box-shadow-focus);
+        color: var(--input-text-color-focus);
+        outline: none;
+    }
+
+    &::placeholder {
+        color: rgb(var(--input-placeholder-color));
+    }
+}

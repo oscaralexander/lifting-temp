@@ -1,0 +1,123 @@
+.footer {
+    &__top {
+        padding: var(--block-padding) 0;
+
+        h4 {
+            margin-bottom: 1em;
+
+            &::before {
+                background-color: rgb(var(--color-1));
+                content: '';
+                display: block;
+                height: 3px;
+                margin-bottom: .25em;
+                width: 40px;
+            }
+        }
+    }
+
+    &__titleContact {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-between;
+        gap: 2em;
+    }
+
+    &__certifications {
+        img {
+            height: 56px;
+        }
+    }
+
+    &__title {
+        font-size: 2.5rem;
+    }
+
+    &__bottom {
+        background: rgb(var(--color-1));
+        color: rgb(var(--bg-color));
+        font-size: var(--font-size-xs);
+        padding: 2em 0;
+
+        .wrapper {
+            align-items: center;
+            display: flex;
+            gap: 1em;
+            flex-direction: column-reverse;
+        }
+
+        a {
+            color: rgb(var(--bg-color));
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        ul {
+            display: flex;
+            gap: 1.5em;
+        }
+    }
+
+    &__legal {
+        opacity: .5;
+    }
+
+    &__logo {
+        height: var(--banner-logo-height);
+    }
+
+    &__contact {
+        display: flex;
+        flex-direction: column;
+        line-height: var(--line-height-l);
+        gap: .5rem;
+
+        li {
+            align-items: center;
+            display: flex;
+            gap: .75rem;
+        }
+
+        a {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        svg {
+            height: 20px;
+            width: 20px;
+        }
+    }
+
+    @include screen-max(l) {
+        &__block {
+            padding-top: 3em;
+        }
+    }
+
+    @include screen-min(m) {
+        font-size: var(--font-size-m);
+    }
+
+    @include screen-min(l) {
+        &__top {   
+            .grid__col:not(:first-child) {
+                box-shadow: -1px 0 0 rgb(var(--border-color));
+            }
+        }
+
+        &__bottom {
+            font-size: var(--font-size-s);
+            padding: 2em 0;
+
+            .wrapper {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+    }
+}

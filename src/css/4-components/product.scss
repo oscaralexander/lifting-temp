@@ -1,0 +1,48 @@
+.product {
+    --product-nav-width: 18rem;
+    padding: 3rem 0;
+    position: relative;
+    z-index: 2;
+
+    &__split {
+        align-items: flex-start;
+        display: flex;
+        gap: 3rem;
+    }
+
+    &__flex {
+        flex: 1;
+    }
+
+    &__brochure {
+        background: #FFFBEB;
+        border-radius: var(--card-border-radius);
+        color: #92400E;
+        display: flex;
+        gap: .75rem;
+        margin-bottom: 1rem;
+        justify-content: space-between;
+        padding: 1.5rem;
+    }
+
+    &__brochureFilename {
+        color: currentColor;
+        font-size: var(--font-size-l);
+        text-decoration: underline;
+    }
+
+    &__contact {
+        align-items: center;
+        background: #ECFDF5;
+        border-radius: var(--card-border-radius);
+        color: #065F46;
+        gap: .75rem;
+        display: flex;
+        padding: 1.5rem;
+
+        svg {
+            height: 32px;
+            width: 32px;
+        }
+    }
+}

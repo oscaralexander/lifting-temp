@@ -1,0 +1,22 @@
+.productPath {
+    display: flex;
+    gap: .5rem;
+    margin-bottom: var(--block-margin);
+
+    &__item {
+        display: flex;
+        gap: .5rem;
+
+        &:not(:first-child)::before {
+            color: rgb(var(--text-color-hc) / 30%);
+            content: '/';
+            display: block;
+        }
+    }
+
+    &__link {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

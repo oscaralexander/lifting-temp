@@ -1,0 +1,17 @@
+@keyframes fieldError {
+    from {
+        opacity: 0;
+    }
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+
+    &__error {
+        animation: fieldError var(--duration-l) ease both;
+        color: #F88;
+        font-size: var(--font-size-s);
+    }
+}

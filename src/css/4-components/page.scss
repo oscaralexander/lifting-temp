@@ -1,0 +1,22 @@
+.page {
+    background-color: rgb(var(--bg-color));
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    @include screen-max(l) {
+        // padding-top: var(--nav-height);
+    }
+
+    .banner.banner--transparent ~ & {
+        margin-top: calc(var(--banner-height) * -1);
+    }
+
+    &__main {
+        flex: 1;
+    }
+
+    @include screen-min(l) {
+        // padding: var(--block-gap) 0;
+    }
+}

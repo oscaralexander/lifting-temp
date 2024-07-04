@@ -1,0 +1,42 @@
+.text {
+    --gap: var(--gutter);
+
+    &__grid {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__text {
+        color: rgb(var(--text-color-hc));
+        font-family: var(--font-3);
+        font-size: var(--font-size-xxl);
+        line-height: var(--line-height-l);
+    }
+
+    &__body {
+        max-width: 40rem;
+    }
+
+    &__ctas {
+        text-align: var(--block-header-alignment);
+    }
+
+    @include screen-min(m) {
+        &__grid {
+            flex-direction: row;
+            gap: var(--gap);
+        }
+    }
+
+    @include screen-min(l) {
+        &__col {
+            flex: 1;
+        }
+
+        &--flipped {
+            .text__grid {
+                flex-direction: row-reverse;
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+@charset 'utf-8';
+
+@import '~reset-css/sass/reset';
+
+// 1. Settings
+@import './1-settings/variables';
+
+// 2. Mixins
+@import './2-tools/mixins';
+
+// 3. Elements
+body {
+    background: blue;
+}

@@ -1,0 +1,221 @@
+@keyframes menuSubMenuY {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -.5rem, 0);
+    }
+}
+
+@keyframes menuSubMenuX {
+    from {
+        opacity: 0;
+        transform: translate3d(-.5rem, 0, 0);
+    }
+}
+
+.menu {
+    align-items: center;
+    flex: 1;
+    gap: 2rem;
+
+    @include screen-max(l) {
+        border-top: 1px solid rgb(var(--border-color));
+        overflow: hidden;
+        position: relative;
+
+        &__item {
+            border-bottom: 1px solid #EEE;
+            display: flex;
+        }
+
+        &__link {
+            cursor: pointer;
+            display: block;
+            flex: 1;
+            font-family: var(--font-2);
+            font-weight: 500;
+            margin: .25rem 0;
+            padding: 12px 20px;
+            text-decoration: none;
+        }
+
+        &__link:not([href='#']):has(~ .menu__subMenuToggle) {
+            border-right: 1px solid rgb(var(--border-color));
+        }
+
+        &__back {
+            color: rgb(var(--color-1));
+            display: flex;
+            font-family: var(--font-2);
+            font-weight: 500;
+            margin: .25rem 0;
+            padding: 12px 0;
+
+            &::before {
+                background: currentColor;
+                content: '';
+                display: block;
+                flex: 0 0 3rem;
+                mask-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 14"><polyline points="7 13 1 7 7 1" fill="none" stroke="%23000" stroke-miterlimit="10" stroke-width="1.5"/></svg>');
+                mask-position: center;
+                mask-size: 8px 14px;
+                mask-repeat: no-repeat;
+            }
+        }
+
+        &__subMenuToggle {
+            appearance: none;
+            background: rgb(var(--color-1));
+            display: block;
+            mask-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 14"><polyline points="1 13 7 7 1 1" fill="none" stroke="%23000" stroke-miterlimit="10" stroke-width="1.5"/></svg>');
+            mask-position: center;
+            mask-size: 8px 14px;
+            mask-repeat: no-repeat;
+            flex: 0 0 3rem;
+            border: none;
+        }
+
+        &__subMenu {
+            background: #FFF;
+            inset: 0;
+            position: absolute;
+            transform: translate3d(100%, 0, 0);
+            transition: var(--banner-nav-duration) var(--banner-nav-ease);
+            width: 100%;
+            will-change: transform;
+            z-index: 2;
+
+            &::before {
+                background: rgb(var(--color-1) / 0%);
+                content: '';
+                inset: 0;
+                pointer-events: none;
+                position: absolute;
+                transform: translate3d(-100%, 0, 0);
+                transition: var(--banner-nav-duration) var(--banner-nav-ease);
+                z-index: 1;
+            }
+
+            .menu__link {
+                padding-left: 3rem;
+            }
+
+            [aria-expanded='true'] ~ & {
+                transform: translate3d(0, 0, 0);
+
+                &::before {
+                    background: rgb(var(--color-1) / .15);
+                }
+            }
+        }
+    }
+
+    @include screen-min(l) {
+        display: flex;
+        justify-content: center;
+
+        &__item {
+            transition: opacity .5s;
+            position: relative;
+
+            &:hover > .menu__subMenu {
+                display: flex;
+            }
+        }
+
+        &__link {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            text-decoration: none;
+            white-space: nowrap;
+           
+            .menu > .menu__item > & {
+                color: rgb(var(--menu-link-color));
+                font-family: var(--menu-link-font);
+                font-size: var(--menu-link-font-size);
+                font-weight: var(--menu-link-font-weight);
+                letter-spacing: var(--menu-link-letter-spacing);
+                padding: .5rem 0;
+                text-transform: uppercase;
+
+                &.has-children {
+                    gap: .5rem;
+
+                    &::after {
+                        background: rgba($color-1, .5);
+                        content: '';
+                        height: 8px;
+                        mask-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 8"><polyline points="1 1 7 7 13 1" fill="none" stroke="%23000" stroke-miterlimit="10" stroke-width="1.15"/></svg>');
+                        width: 14px;
+                    }
+                }
+            }
+
+            .menu__subMenu & {
+                color: rgb(var(--menu-submenu-color));
+                font-family: var(--menu-submenu-font);
+                font-weight: var(--menu-submenu-font-weight);
+                letter-spacing: var(--menu-submenu-letter-spacing);
+                display: flex;
+                padding: 0.5rem 1.5rem;
+
+                &.has-children {
+                    gap: 2rem;
+
+                    &::after {
+                        background: rgba($color-1, .5);
+                        content: '';
+                        height: 14px;
+                        mask-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 14"><polyline points="1 13 7 7 1 1" fill="none" stroke="%23000" stroke-miterlimit="10" stroke-width="1.15"/></svg>');
+                        width: 8px;
+                    }
+                }
+            }
+        }
+
+        &__subMenuToggle {
+            display: none;
+        }
+
+        &__subMenu {
+            animation: menuSubMenuX .25s ease-out both;
+            background: rgb(var(--menu-submenu-bg-color));
+            border-radius: var(--menu-submenu-border-radius);
+            box-shadow: var(--menu-submenu-box-shadow);
+            display: none;
+            flex-direction: column;
+            max-width: 320px;
+            padding: .75rem 0;
+            position: absolute;
+            left: calc(100% - 2rem);
+            top: -12px;
+
+            .menu > .menu__item > & {
+                animation-name: menuSubMenuY;
+                left: -1.5rem;
+                top: 100%;
+            }
+
+            .menu__item:hover > .menu__link {
+                background: rgb(var(--menu-submenu-bg-color-hover));
+                color: rgb(var(--menu-submenu-color-hover));
+            }
+        }
+
+        &__back {
+            display: none;
+        }
+
+        &:hover > .menu__item {
+            opacity: .5;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+body.is-menuVisible {
+    overflow: hidden;
+}

@@ -1,6 +1,7 @@
 {
   "devDependencies": {
     "browser-sync": "^3.0.2",
+    "browser-sync-webpack-plugin": "^2.3.0",
     "laravel-mix": "^6.0.49",
     "resolve-url-loader": "^5.0.0",
     "sass": "^1.77.6",
@@ -13,5 +14,9 @@
     "watch-poll": "mix watch -- --watch-options-poll=1000",
     "hot": "mix watch --hot",
     "production": "mix --production"
+  },
+  "dependencies": {
+    "gsap": "^3.12.5",
+    "reset-css": "^5.0.2"
   }
 }

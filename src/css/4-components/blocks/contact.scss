@@ -1,0 +1,107 @@
+@keyframes contactFormSuccess {
+    from {
+        opacity: 0%;
+    }
+}
+
+@keyframes contactFormSuccessInner {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 2rem, 0);
+    }
+}
+
+.contact {
+    // padding-bottom: 0;
+    // padding-top: 0;
+
+    &__inner {
+        background-color: rgb(var(--color-1));
+        border-radius: var(--card-border-radius);
+        padding: calc(var(--block-padding)) var(--gutter);
+    }
+
+    &__text {
+        align-items: center;
+        display: flex;
+        gap: 1.5em;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    &__title {
+        color: rgb(var(--h3-color));
+    }
+
+    &__form {
+        position: relative;
+
+        input[data-honeypot] {
+            height: 0;
+            position: absolute;
+            width: 0;
+        }
+    }
+
+    &__formSuccess {
+        animation: contactFormSuccess 1s ease both;
+        background: rgb(var(--color-1));
+        display: none;
+        flex-direction: column;
+        inset: 0;
+        padding: 2rem;
+        position: absolute;
+
+        p {
+            line-height: var(--line-height-l);
+            max-width: 75%;
+        }
+
+        .is-success & {
+            display: flex;
+        }
+    }
+
+    &__formSuccessInner {
+        align-items: center;
+        animation: contactFormSuccessInner 1s ease both;
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        margin: auto;
+        justify-content: center;
+        text-align: center;
+    }
+
+    &__formSuccessCheck {
+        background: #FFF;
+        color: #10B981;
+        display: flex;
+        border-radius: 50%;;
+        height: 64px;
+        margin-bottom: .5rem;
+        width: 64px;
+
+        svg {
+            height: 32px;
+            margin: auto;
+            stroke-width: 3px;
+            width: 32px;
+        }
+    }
+
+    @include screen-max(m) {
+        margin-left: calc(var(--gutter) * -1);
+        margin-right: calc(var(--gutter) * -1);
+
+        &__inner {
+            border-radius: 0;
+        }
+    }
+
+    @include screen-min(l) {
+        &__inner {
+            padding: 4em;
+        }
+    }
+}

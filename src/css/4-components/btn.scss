@@ -1,0 +1,114 @@
+@keyframes spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.btn {
+    @include alternates;
+    align-items: center;
+    backdrop-filter: blur(8px);
+    background-color: rgb(var(--btn-bg-color));
+    box-shadow: inset 0 0 0 var(--btn-border-width) rgb(var(--btn-border-color));
+    border-radius: var(--btn-radius-m);
+    appearance: none;
+    color: rgb(var(--btn-text-color));
+    cursor: pointer;
+    display: inline-flex;
+    font-family: var(--btn-font);
+    font-weight: var(--btn-font-weight);
+    gap: .5rem;
+    height: 48px;
+    letter-spacing: var(--btn-letter-spacing);
+    line-height: 20px;
+    padding: 1px 1.5rem;
+    position: relative;
+    text-align: center;
+    text-transform: var(--btn-text-transform);
+    transition:
+        background-color var(--duration-m) ease,
+        box-shadow var(--duration-m) ease,
+        color var(--duration-m) ease;
+    user-select: none;
+    white-space: nowrap;
+
+    &:hover {
+        background-color: rgb(var(--btn-bg-color-hover));
+        box-shadow: inset 0 0 0 var(--btn-border-width) rgb(var(--btn-border-color-hover));
+        color: rgb(var(--btn-text-color-hover));
+    }
+
+    &:active {
+        padding-bottom: 0;
+        padding-top: 2px;
+    }
+
+    &[type=submit] {
+        &::after {
+            animation: spinner 1s infinite linear;
+            background-color: rgb(var(--btn-text-color));
+            content: '';
+            display: none;
+            height: 24px;
+            left: calc(50% - 12px);
+            mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,3C7.03125,3,3,7.03125,3,12s4.03125,9,9,9c3.28594,0,6.15469-1.75781,7.72969-4.3875l.00469.00469c-.32344.69844-.07031,1.5375.60938,1.93125.71719.41719,1.63594.16875,2.04844-.54844.00938-.01406.01875-.02813.02344-.04219h0c-2.06719,3.60938-5.95781,6.04219-10.41563,6.04219C5.37187,24,0,18.62812,0,12S5.37187,0,12,0c-.82969,0-1.5.67031-1.5,1.5s.67031,1.5,1.5,1.5Z" isolation="isolate" opacity=".4" stroke-width="0"/><path d="M10.5,1.5c0-.82969.67031-1.5,1.5-1.5,6.62812,0,12,5.37187,12,12,0,2.18438-.58594,4.2375-1.60781,6-.4125.71719-1.33125.96094-2.04844.54844s-.96094-1.33125-.54844-2.04844c.76406-1.32188,1.20469-2.85938,1.20469-4.5,0-4.96875-4.03125-9-9-9-.82969,0-1.5-.67031-1.5-1.5Z" stroke-width="0"/></svg>');
+            mask-size: 24px 24px;
+            position: absolute;
+            top: calc(50% - 12px);
+            width: 24px;
+        }
+
+        .is-loading &,
+        &.is-loading {
+            color: transparent;
+            cursor: not-allowed;
+            pointer-events: none;
+
+            &::after {
+                display: block;
+            }
+        }
+    }
+
+    &--block {
+        display: flex;
+        width: 100%;
+    }
+
+    &--inverted {
+        --btn-bg-color: var(--btn-inverted-bg-color);
+        --btn-bg-color-hover: var(--btn-inverted-bg-color-hover);
+        --btn-border-color: var(--btn-inverted-border-color);
+        --btn-border-color-hover: var(--btn-inverted-border-color-hover);
+        --btn-border-width: var(--btn-inverted-border-width);
+        --btn-text-color: var(--btn-inverted-text-color);
+        --btn-text-color-hover: var(--btn-inverted-text-color-hover);
+    }
+
+    &--primary {
+        --btn-bg-color: var(--btn-primary-bg-color);
+        --btn-bg-color-hover: var(--btn-primary-bg-color-hover);
+        --btn-border-color: var(--btn-primary-border-color);
+        --btn-border-color-hover: var(--btn-primary-border-color-hover);
+        --btn-border-width: var(--btn-primary-border-width);
+        --btn-text-color: var(--btn-primary-text-color);
+        --btn-text-color-hover: var(--btn-primary-text-color-hover);
+
+        &.btn--inverted {
+            --btn-bg-color: var(--btn-primary-inverted-bg-color);
+            --btn-bg-color-hover: var(--btn-primary-inverted-bg-color-hover);
+            --btn-border-color: var(--btn-primary-inverted-border-color);
+            --btn-border-color-hover: var(--btn-primary-inverted-border-color-hover);
+            --btn-border-width: var(--btn-primary-inverted-border-width);
+            --btn-text-color: var(--btn-primary-inverted-text-color);
+            --btn-text-color-hover: var(--btn-primary-inverted-text-color-hover);
+        }
+    }
+
+    &--small {
+        border-radius: var(--btn-radius-s);
+        height: 2.5rem;
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+}

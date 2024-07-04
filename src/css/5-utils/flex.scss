@@ -1,0 +1,61 @@
+@mixin flex-gap($selector, $val) {
+    #{$selector} {
+        gap: $val;
+    }
+}
+
+.u-flex {
+    display: flex;
+}
+
+.u-flex-align-baseline {
+    align-items: baseline;
+}
+
+.u-flex-align-center {
+    align-items: center;
+}
+
+.u-flex-align-end {
+    align-items: flex-end;
+}
+
+.u-flex-align-between {
+    align-items: space-between;
+}
+
+.u-flex-align-start {
+    align-items: flex-start;
+}
+
+.u-flex-column {
+    flex-direction: column;
+}
+
+.u-flex-justify-center {
+    justify-content: center;
+}
+
+.u-flex-justify-end {
+    justify-content: flex-end;
+}
+
+.u-flex-justify-between {
+    justify-content: space-between;
+}
+
+.u-flex-justify-start {
+    justify-content: flex-start;
+}
+
+@each $key, $val in $sizes {
+    @include flex-gap('.u-flex-gap-#{$key}', $val);
+}
+
+@each $screen in map-keys($screens) {
+    @include screen-min($screen) {
+        @each $key, $val in $sizes {
+            @include flex-gap('.#{$screen}\\:u-flex-gap-#{$key}', $val);
+        }
+    }
+}

@@ -1,0 +1,56 @@
+.footerMenu {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+
+    &__item {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__link {
+        line-height: 24px;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__subMenuToggle {
+        background: #FFF;
+        border: none;
+        border-radius: 50%;
+        box-shadow: 0 0 0 1px rgb(var(--border-color));
+        display: block;
+        height: 24px;
+        position: relative;
+        width: 24px;
+
+        &::after {
+            background-color: currentColor;
+            content: '';
+            inset: 0;
+            mask-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 8"><polyline points="11 1.5 6 6.5 1 1.5" fill="none" stroke="%23000" stroke-miterlimit="10"/></svg>');
+            mask-repeat: no-repeat;
+            mask-position: center;
+            mask-size: 14px 8px;
+            position: absolute;
+        }
+
+        &[aria-expanded=true]::after {
+            transform: rotate(180deg);
+        }
+    }
+
+    &__subMenu {
+        display: none;
+        flex-basis: 100%;
+        flex-direction: column;
+        padding: .5rem 0 0 1.5rem;
+        gap: .5rem;
+
+        [aria-expanded=true] ~ & {
+            display: flex !important;
+        }
+    }
+}

@@ -1,0 +1,33 @@
+.block {
+    background-color: rgb(var(--bg-color));
+    color: rgb(var(--text-color));
+    padding: calc(var(--block-padding)) 0;
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: var(--block-margin);
+        max-width: 40rem;
+        gap: 1em;
+    }
+
+    &__eyebrow {
+        &:empty {
+            display: none;
+        }
+    }
+
+    &__intro {
+        font-size: var(--font-size-l);
+        font-weight: 500;
+        line-height: var(--line-height-l);
+
+        &:empty {
+            display: none;
+        }
+    }
+
+    &--tighter {
+        padding: calc(var(--block-padding) * .5) 0;
+    }
+}

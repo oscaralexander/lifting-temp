@@ -1,0 +1,9 @@
+.wrapper {
+    margin: auto;
+    max-width: var(--wrapper);
+    padding: 0 var(--gutter);
+
+    &--narrow {
+        max-width: var(--wrapper-narrow);
+    }
+}

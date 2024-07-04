@@ -1,0 +1,249 @@
+.banner {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    &::after {
+        background: rgb(var(--banner-bg-color));
+        box-shadow: var(--banner-box-shadow);
+        content: '';
+        display: block;
+        inset: 0;
+        position: absolute;
+        transform-origin: top;
+        transition: transform .5s ease;
+        z-index: 1;
+    }
+
+    .wrapper {
+        align-items: center;
+        display: flex;
+        height: var(--banner-height);
+        position: relative;
+        z-index: 2;
+    }
+
+    &__logo {
+        display: block;
+        height: var(--banner-logo-height);
+        position: relative;
+        z-index: 3;
+    }
+
+    &.banner--inverted.banner--transparent {
+        background-image: linear-gradient(to bottom, rgba(#000, .5), rgba(#000, 0));
+
+        .btn {
+            backdrop-filter: blur(8px);
+        }
+    }
+
+    &.banner--transparent {
+        &:not(.is-scrolled) {
+            &::after {
+                transform: scaleY(0);
+            }
+        }
+
+        .banner__menuToggle,
+        .banner__logo *,
+        .banner__text,
+        .menu > .menu__item > .menu__link,
+        .menu > .menu__item > .menu__link::after,
+        .btn {
+            transition:
+                background-color .5s ease,
+                border-color .5s ease,
+                color .5s ease,
+                fill .5s ease,
+                opacity .5s ease;
+        }
+    }
+
+    &.banner--inverted.banner--transparent:not(.is-scrolled) {
+        .banner__menuToggle,
+        .banner__logo *,
+        .banner__text,
+        .menu > .menu__item > .menu__link,
+        .menu > .menu__item > .menu__link::after,
+        .btn {
+            transition-delay: 0s;
+            transition-duration: .5s;
+        }
+
+        .banner__menuToggle,
+        .banner__logo *,
+        .banner__text {
+            color: #FFF;
+            fill: #FFF;
+        }
+
+        .menu > .menu__item > .menu__link::after {
+            background-color: rgba(#FFF, .5);
+
+        }
+
+        .btn {
+            background-color: rgba(#FFF, .15);
+        }
+    }
+
+    @include screen-max(l) {
+        .wrapper {
+            display: flex;
+            justify-content: space-between;
+            padding-left: 60px;
+        }
+
+        &__menuToggle {
+            display: flex;
+            height: 48px;
+            left: 6px;
+            position: absolute;
+            top: calc(50% - 24px);
+            width: 48px;
+            z-index: 5;
+
+            div {
+                background-color: currentColor;
+                height: 2px;
+                margin: auto;
+                position: relative;
+                transition: 0ms 125ms var(--easing-func);
+                width: 20px;
+
+                &::before,
+                &::after {
+                    background-color: currentColor;
+                    content: '';
+                    height: 2px;
+                    position: absolute;
+                    transition: transform 125ms ease, top 125ms 125ms ease;
+                    width: 20px;
+                }
+
+                &::before {
+                    top: -6px;
+                }
+
+                &::after {
+                    top: 6px;
+                }
+            }
+
+            #menuToggle:checked ~ .banner & {
+                div {
+                    background: transparent;
+
+                    &::before,
+                    &::after {
+                        transition: transform 125ms 125ms ease, top 125ms ease;
+                    }
+
+                    &::before {
+                        transform: rotate(45deg);
+                        top: 0;
+                    }
+
+                    &::after {
+                        transform: rotate(-45deg);
+                        top: 0;
+                    }
+                }
+            }
+        }
+        
+        &__overlay {
+            background: rgb(var(--color-1) / 50%);
+            inset: 0;
+            opacity: 0;
+            position: fixed;
+            transition: 250ms ease-in-out;
+            transition: 
+                visibility var(--banner-nav-duration) step-end,
+                opacity var(--banner-nav-duration) var(--banner-nav-ease);
+            visibility: hidden;
+            z-index: 2;
+
+            #menuToggle:checked ~ .banner & {
+                opacity: 1;
+                transition: 
+                    visibility var(--banner-nav-duration) step-start,
+                    opacity var(--banner-nav-duration) var(--banner-nav-ease);
+                visibility: visible;
+            }
+        }
+
+        &__navigation {
+            background: rgb(var(--banner-bg-color));
+            box-shadow: 0 0 4px rgba(#000, 0);
+            display: flex;
+            flex-direction: column;
+            inset: 0 10vw 0 0;
+            overflow: hidden;
+            padding-top: var(--banner-height);
+            position: fixed;
+            transform: translate3d(-90vw, 0, 0);
+            transition: transform var(--banner-nav-duration) var(--banner-nav-ease);
+            z-index: 4;
+
+            #menuToggle:checked ~ .banner & {
+                box-shadow: 0 0 4px rgba(#000, .25);
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        &__ctaLarge {
+            display: none !important;
+        }
+
+        #menuToggle:checked ~ & {
+            & .banner__menuToggle {
+                color: rgb(var(--color-1)) !important;
+            }
+        }
+    }
+
+    @include screen-min(l) {
+        transition: transform .5s ease;
+        transform: translate3d(0, 0, 0);
+        
+        &.banner--inverted.banner--transparent:not(.is-scrolled) {
+            .menu > .menu__item > .menu__link {
+                color: #FFF;
+            }
+        }
+
+        &.banner--transparent:not(.is-scrollingUp) {
+            .banner__menuToggle,
+            .banner__logo *,
+            .banner__text,
+            .menu > .menu__item > .menu__link,
+            .menu > .menu__item > .menu__link::after,
+            .btn {
+                transition:
+                    background-color 0s .5s step-end,
+                    border-color 0s .5s step-end,
+                    color 0s .5s step-end,
+                    fill 0s .5s step-end,
+                    opacity 0s .5s step-end;
+            }
+        }
+
+        &.is-scrolled:not(.is-scrollingUp) {
+            transform: translate3d(0, -100%, 0);
+
+            &::after {
+                box-shadow: 0 0 0 rgba(#000, 0);
+            }
+        }
+
+        &__navigation {
+            flex: 1;
+        }
+
+        &__ctaSmall {
+            display: none !important;
+        }
+    }
+}

@@ -1,0 +1,41 @@
+.services {
+    background: rgb(var(--bg-color-tint));
+
+    &__intro,
+    &__service {
+        justify-content: space-between;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        height: 100%;
+    }
+
+    &__main {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: 1rem;
+    }
+
+    &__icon {
+        width: 3rem;
+    }
+
+    @include screen-max(l) {
+        &__service {
+            background: #FFF;
+            padding: 1.5em;
+        }
+
+        &__text {
+            font-size: var(--font-size-s);
+        }
+    }
+    
+    @include screen-min(l) {
+        &__service {
+            border-left: 1px solid rgb(var(--border-color));
+            padding-left: 1.5em;
+        }
+    }
+}

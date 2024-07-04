@@ -1,0 +1,94 @@
+.formatted {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    line-height: var(--line-height-l);
+
+    a {
+        color: currentColor;
+        text-decoration: underline;
+    }
+
+    figure {
+        display: block;
+        margin: var(--block-margin) 0;
+
+        img,
+        iframe {
+            border-radius: var(--card-border-radius);
+        }
+
+        iframe {
+            aspect-ratio: 16/9;
+            display: block;
+            height: auto;
+            width: 100%;
+        }
+
+        figcaption {
+            color: rgb(var(--color-text-lc));
+            font-size: var(--font-size-xs);
+            margin-top: 1rem;
+
+        }
+    }
+
+    ol,
+    p,
+    ul {
+        margin-bottom: 1.25em;
+    }
+
+    h4 {
+        font-size: 1em;
+        margin-bottom: 1.5em;
+    }
+
+    ul {
+        list-style: disc;
+        margin-left: 1.25em;
+    }
+
+    ol,
+    ul {
+        ol,
+        ul {
+            margin-bottom: 0;
+            margin-top: 0.5em;
+        }
+
+        li {
+            margin-bottom: 0.5em;
+        }
+    }
+
+    .large {
+        font-size: 1.25em;
+    }
+
+    .larger {
+        font-size: 1.5em;
+    }
+
+    & > :last-child {
+        margin-bottom: 0;
+    }
+
+    @include screen-min(l) {
+        figure {
+            margin: var(--block-margin) calc(var(--gutter) * -1);
+
+            figcaption {
+                margin: 1rem var(--gutter) 0 var(--gutter);                
+            }
+        }
+
+        .large {
+            font-size: 1.5em;
+        }
+    
+        .larger {
+            font-size: 2em;
+        }
+    }
+}

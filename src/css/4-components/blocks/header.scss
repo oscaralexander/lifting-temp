@@ -1,0 +1,58 @@
+.header {
+    background: rgb(var(--bg-color-tint));
+    color: rgb(var(--text-color-hc));
+    padding: var(--block-padding) 0;
+    position: relative;
+    z-index: 1;
+
+    .banner--transparent + .page & {
+        padding-top: calc(var(--block-padding) + var(--banner-height));
+    }
+
+    &__backdrop {
+        overflow: hidden;
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+
+        img {
+            bottom: 0;
+            height: 125%;
+            left: 0;
+            object-position: 75% top;
+            position: absolute;
+            transform: translate3d(0, calc(var(--equinox-pos) * 20%), 0);
+            width: 100%;
+            z-index: 1;
+        }
+
+        &::after {
+            background-image: linear-gradient(15deg, rgb(0 0 0 / 100%), rgb(0 0 0 / 0%) 50%);
+            content: '';
+            inset: 0;
+            position: absolute;
+            z-index: 2;
+        }
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        position: relative;
+        z-index: 2;
+
+    }
+
+    &__eyebrow {
+        font-size: var(--font-size-l);
+        font-family: var(--font-2);
+        text-transform: none;
+    }
+
+    @include screen-min(l) {
+        &--product {
+            padding-left: calc(21rem);
+        }
+    }
+}

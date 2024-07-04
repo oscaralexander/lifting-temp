@@ -1,0 +1,126 @@
+.textMedia {
+    --gap: max(var(--gutter), min(var(--block-padding), var(--gutter-actual)));
+
+    &__media {
+        @include screen-max(l) {
+            margin-bottom: var(--block-margin);
+
+            .textMedia--mediaCover & {
+                margin: 0 calc(var(--gutter) * -1) 3rem;
+            }
+        }
+
+        @include screen-min(l) {
+            .textMedia--mediaCover & {
+                bottom: 0;
+                height: 100%;
+                overflow: hidden;
+                position: absolute;
+                width: 50%;
+            }
+
+            .textMedia--mediaCover.textMedia--textLeft & {
+                right: 0;
+            }
+
+            .textMedia--mediaCover.textMedia--textRight & {
+                left: 0;
+            }
+
+            .textMedia--mediaFloat.textMedia--image & {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+        }
+    }
+
+    &__mediaBox {
+        img {
+            margin: auto;
+            max-height: 75vh;
+            object-fit: contain;
+            width: 100%;
+        }
+    }
+
+    &__embed {
+        border-radius: var(--card-border-radius);
+        position: relative;
+        width: 100%;
+
+        &.textMedia__embed--1x1 {
+            aspect-ratio: 1/1;
+        }
+
+        &.textMedia__embed--16x9 {
+            aspect-ratio: 16/9;
+        }
+
+        &.textMedia__embed--4x3 {
+            aspect-ratio: 4/3;
+        }
+
+        &:not(.textMedia__embed--none) {
+            iframe {
+                border-radius: var(--card-border-radius);
+                height: 100%;
+                inset: 0;
+                position: absolute;
+                width: 100%;
+            }
+        }
+    }
+
+    &__textWrapper {
+        max-width: 40rem;
+    }
+
+    &__ctas {
+        text-align: var(--block-header-alignment);
+    }
+
+    @include screen-max(l) {
+        &__mediaBox {
+            margin-left: calc(var(--gutter) * -1);
+            margin-right: calc(var(--gutter) * -1);
+        }
+
+        &__text {
+            .block__header {
+                display: none;
+            }
+        }
+    }
+
+    @include screen-min(l) {
+        .wrapper > .block__header {
+            @include screen-min(l) {
+                display: none;
+            }
+        }
+
+        &__split {
+            align-items: center;
+            display: flex;
+            gap: var(--gap);
+
+            .textMedia--textLeft & {
+                flex-direction: row-reverse;
+            }
+        }
+
+        &__text,
+        &__media {
+            flex: 1;
+        }
+
+        &__mediaBox {
+            transform: translate3d(0, calc(var(--equinox) * 10%), 0);
+
+            img {
+                border-radius: var(--card-border-radius);
+            }
+        }
+    }
+}
