@@ -146,12 +146,6 @@
         --font-size-xxl: 2rem;    /* 32px */
         --font-size-3xl: 2.25rem; /* 36px */
         --font-size-4xl: 4rem;    /* 48px */
-
-        /**
-         * Typography
-         */
-        --h1-font-size: 96px;
-        --h2-font-size: 16px;
     }
 }
 
@@ -159,6 +153,22 @@
     :root {
         --font-size-xl: 3rem;
         --font-size-xxl: 5rem;
+
+        /**
+         * Typography
+         */
+         --h1-font-size: 80px;
+         --h2-font-size: 16px;
+    }
+}
+
+@media (min-width: 1440px) {
+    :root {
+        /**
+         * Typography
+         */
+         --h1-font-size: 96px;
+         --h2-font-size: 16px;
     }
 }
 

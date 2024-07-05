@@ -39,7 +39,7 @@
     &__text {
         display: flex;
         flex-direction: column;
-        gap: 3em;
+        gap: 2.5em;
     }
 
     &__header {
@@ -129,18 +129,34 @@
         &__content {
             flex: 0 0 50%;
             justify-content: space-between;
+            max-width: 800px;
         }
 
-        &__intro {
-            font-size: var(--font-size-l);
+        &__text {
+            gap: 2em;
         }
 
         &__logo {
-            height: 4rem;   
+            height: 3rem;
+            margin-bottom: 2rem;
         }
 
         &__contact {
             font-size: var(--font-size-s);
+        }
+    }
+
+    @include screen-min(xl) {
+        &__logo {
+            height: 4rem;
+        }
+
+        &__text {
+            gap: 3em;
+        }
+
+        &__intro {
+            font-size: var(--font-size-l);
         }
     }
 }

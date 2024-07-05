@@ -17,6 +17,7 @@
 
     @include screen-min(m) {
         display: flex;
+        font-size: var(--font-size-s);
         gap: .75em;
 
         li {
@@ -29,5 +30,9 @@
                 }
             }
         }
+    }
+
+    @include screen-min(xl) {
+        font-size: var(--font-size-m);
     }
 }
