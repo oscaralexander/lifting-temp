@@ -11,10 +11,17 @@
         z-index: 1;
 
         img {
-            height: 100%;
             position: absolute;
-            width: 100%;
         }
+    }
+
+    &__backdropMobile {
+        height: 100%;
+        width: 100%;
+    }
+
+    &__backdropParallax {
+        display: none;
     }
 
     &__main {
@@ -93,15 +100,17 @@
     @include screen-min(m) {
         &__backdrop {
             inset: -24px;
-            position: absolute;
-            will-change: transform;
-            z-index: 1;
+        }
 
-            img {
-                height: 100%;
-                position: absolute;
-                width: 100%;
-            }
+        &__backdropMobile {
+            display: none;
+        }
+
+        &__backdropParallax {
+            display: block;
+            height: 100%;
+            will-change: transform;
+            width: 100%;
         }
 
         &__main {
