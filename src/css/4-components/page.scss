@@ -1,22 +1,137 @@
 .page {
     background-color: rgb(var(--bg-color));
-    display: flex;
     flex-direction: column;
+    display: flex;
     min-height: 100vh;
+    overflow: hidden;
+    position: relative;
 
-    @include screen-max(l) {
-        // padding-top: var(--nav-height);
-    }
+    &__backdrop {
+        position: absolute;
+        z-index: 1;
 
-    .banner.banner--transparent ~ & {
-        margin-top: calc(var(--banner-height) * -1);
+        img {
+            height: 100%;
+            position: absolute;
+            width: 100%;
+        }
     }
 
     &__main {
-        flex: 1;
+        color: #FFF;
+        position: relative;
+        z-index: 2;
     }
 
-    @include screen-min(l) {
-        // padding: var(--block-gap) 0;
+    &__content {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__text {
+        display: flex;
+        flex-direction: column;
+        gap: 3em;
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    &__intro {
+        color: rgb(255 255 255 / 85%);
+        line-height: 1.5;
+    }
+
+    &__ctas {
+        display: flex;
+        gap: .5em;
+    }
+
+    @include screen-max(m) {
+        &__backdrop {
+            height: 150vw;
+            position: fixed;
+            width: 100vw;
+
+            img {
+                object-position: 72.5% 50%;
+            }
+        }
+
+        &__main {
+            background-image: linear-gradient(to bottom, rgb(var(--color-1) / 0%) 25vw, rgb(var(--color-1) / 100%) 150vw, rgb(0 0 0));
+            min-height: 100vh;
+            padding: 85vw 24px 40px 24px;
+        }
+
+        &__logo {
+            height: 3rem;
+            pointer-events: none;
+            position: fixed;
+            top: 32px;
+            transition: opacity .5s;
+
+            .is-hideLogo & {
+                opacity: 0;
+            }
+        }
+
+        &__content {
+        }
+
+        &__ctas {
+            .btn {
+                flex: 1;
+            }
+        }
+    }
+
+    @include screen-min(m) {
+        &__backdrop {
+            inset: -24px;
+            position: absolute;
+            will-change: transform;
+            z-index: 1;
+
+            img {
+                height: 100%;
+                position: absolute;
+                width: 100%;
+            }
+        }
+
+        &__main {
+            background-image: linear-gradient(60deg,
+                rgb(var(--color-1) / 100%),
+                rgb(0 0 0 / 75%) 50%,
+                rgb(0 0 0 / 0%) 75%
+            );
+            color: #FFF;
+            display: flex;
+            flex: 1;
+            gap: 64px;
+            padding: 64px;
+        }
+
+        &__content {
+            flex: 0 0 50%;
+            justify-content: space-between;
+        }
+
+        &__intro {
+            font-size: var(--font-size-l);
+        }
+
+        &__logo {
+            height: 4rem;   
+        }
+
+        &__contact {
+            font-size: var(--font-size-s);
+        }
     }
 }

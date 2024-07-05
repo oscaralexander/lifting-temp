@@ -1,0 +1,33 @@
+.contact {
+    font-size: var(--font-size-xs);
+    line-height: 1.75;
+
+    a {
+        background: linear-gradient(to right, rgb(255 255 255 / 25%), rgb(255 255 255 / 25%)),
+            linear-gradient(to right, rgb(255 255 255), rgb(255 255 255));
+        background-position: 0 100%, 0 100%;
+        background-repeat: no-repeat;
+        background-size: 100% 1px, 0 1px;
+        transition: background-size 250ms;
+
+        &:hover {
+            background-size: 100% 1px, 100% 1px;
+        }
+    }
+
+    @include screen-min(m) {
+        display: flex;
+        gap: .75em;
+
+        li {
+            display: flex;
+            gap: .75em;
+    
+            &:not(:last-child) {
+                &::after {
+                    content: '·';
+                }
+            }
+        }
+    }
+}

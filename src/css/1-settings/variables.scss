@@ -1,17 +1,8 @@
-@font-face {
-    font-display: swap;
-    font-family: 'Söhne Schmall';
-    font-style: normal;
-    font-weight: 700;
-    src: url('/assets/fonts/soehne-schmal-fett.woff2') format('woff2');
-}
-
 :root {
     --ease: cubic-bezier(0.75, 0, 0.175, 1);
     --gutter: 20px;
     --wrapper: 1920px;
     --wrapper-narrow: 720px;
-    --sidebar: 320px;
     --focus-outline: none;
 
     --block-gap: 4.5rem;
@@ -38,8 +29,8 @@
     --font-size-xl: 2.5rem;   /* 32px */
     --font-size-xxl: 4rem;    /* 48px */
 
-    --bg-color: 255 255 255;
-    --bg-color-tint: 248 250 252;
+    --bg-color: 0 0 0;
+    --bg-color-tint: 0 0 0;
     --border-color: 31 51 106 / 10%;
 
     --color-1: 31 51 106;
@@ -56,43 +47,19 @@
      */
     --h1-color: var(--text-color-hc);
     --h1-font: var(--font-3);
-    --h1-font-size: var(--font-size-xxl);
+    --h1-font-size: 64px;
     --h1-font-weight: 700;
     --h1-letter-spacing: 0.01em;
     --h1-line-height: var(--line-height-s);
     --h1-text-transform: uppercase;
 
     --h2-color: var(--text-color-hc);
-    --h2-font: var(--font-3);
-    --h2-font-size: var(--font-size-xl);
+    --h2-font: var(--font-2);
+    --h2-font-size: 14px;
     --h2-font-weight: 700;
     --h2-letter-spacing: 0.01em;
     --h2-line-height: var(--line-height-s);
     --h2-text-transform: uppercase;
-
-    --h3-color: var(--text-color-hc);
-    --h3-font: var(--font-2);
-    --h3-font-size: 24px;
-    --h3-font-weight: 700;
-    --h3-letter-spacing: 0;
-    --h3-line-height: var(--line-height-m);
-    --h3-text-transform: none;
-
-    --h4-color: var(--text-color-hc);
-    --h4-font: var(--font-2);
-    --h4-font-size: 20px;
-    --h4-font-weight: 700;
-    --h4-letter-spacing: 0;
-    --h4-line-height: var(--line-height-m);
-    --h4-text-transform: none;
-
-    --h5-color: var(--text-color-hc);
-    --h5-font: var(--font-1);
-    --h5-font-size: var(--font-size-xs);
-    --h5-font-weight: 500;
-    --h5-letter-spacing: 0.05em;
-    --h5-line-height: var(--line-height-l);
-    --h5-text-transform: uppercase;
 
     --intro-color: var(--text-color-hc);
     --intro-font: var(--font-2);
@@ -163,55 +130,6 @@
     --btn-primary-inverted-border-color-hover: 255 255 255;
     --btn-primary-inverted-text-color: 31 51 106;
     --btn-primary-inverted-text-color-hover: 31 51 106;
-
-    /**
-     * Announcement
-     */
-    --announcement-height: 32px;
-    --announcement-bg-color: 255, 232, 138;
-
-    /**
-     * Banner
-     */
-    --banner-bg-color: 255 255 255;
-    --banner-border-color: 236 236 236;
-    --banner-nav-duration: 500ms;
-    --banner-nav-ease: cubic-bezier(.5, 0, .5, 1);
-    --banner-box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
-    --banner-height: 64px;
-    --banner-logo-height: 36px;
-
-    /**
-     * Menu
-     */
-    --menu-link-color: 31 51 106;
-    --menu-link-color-hover: 31 51 106;
-    --menu-link-font: var(--font-1);
-    --menu-link-font-size: 0.875rem;
-    --menu-link-font-weight: 500;
-    --menu-link-letter-spacing: 0.025rem;
-    --menu-link-text-transform: uppercase;
-    --menu-position: fixed;
-    --menu-submenu-bg-color: 255 255 255;
-    --menu-submenu-bg-color-hover: 68 0 102 / 10%;
-    --menu-submenu-border-color: 255 255 255;
-    --menu-submenu-border-radius: 0;
-    --menu-submenu-box-shadow: 0 8px 12px rgb(0 0 0 / 10%);
-    --menu-submenu-link-color: 0 0 0;
-    --menu-submenu-link-color-hover: 0 0 0;
-    --menu-submenu-link-font: var(--font-1);
-    --menu-submenu-link-font-size: 1rem;
-    --menu-submenu-link-font-weight: 400;
-    --menu-submenu-link-letter-spacing: 0.015rem;
-    --menu-submenu-link-text-transform: none;
-    --menu-submenu-width: 192px;
-
-    /**
-     * Cards
-     */
-    --card-bg-color: 255 255 255;
-    --card-text-color: var(--text-color);
-    --card-border-radius: 0;
 }
 
 @media (min-width: 1024px) {
@@ -232,41 +150,8 @@
         /**
          * Typography
          */
-        --h2-font-size: 64px;
-        --h3-font-size: 32px;
-        --h4-font-size: 24px;
-        --h5-font-size: 14px;
-
-        /**
-         * Banner
-         */
-        --banner-height: 112px;
-        --banner-logo-height: 56px;
-
-        /**
-         * Menu
-         */
-        --menu-link-color: 31 51 106;
-        --menu-link-color-hover: 31 51 106;
-        --menu-link-font: var(--font-1);
-        --menu-link-font-size: 0.875rem;
-        --menu-link-font-weight: 600;
-        --menu-link-letter-spacing: 0.05rem;
-        --menu-link-text-transform: uppercase;
-        --menu-position: fixed;
-        --menu-submenu-bg-color: 255 255 255;
-        --menu-submenu-bg-color-hover: var(--bg-color-tint);
-        --menu-submenu-border-color: 255 255 255;
-        --menu-submenu-border-radius: .25rem;
-        --menu-submenu-box-shadow: 0 8px 12px rgb(0 0 0 / 10%);
-        --menu-submenu-color: 31 51 106 / 75%;
-        --menu-submenu-color-hover: 31 51 106;
-        --menu-submenu-font: var(--font-1);
-        --menu-submenu-font-size: 1rem;
-        --menu-submenu-font-weight: 500;
-        --menu-submenu-letter-spacing: 0;
-        --menu-submenu-text-transform: none;
-        --menu-submenu-width: 192px;
+        --h1-font-size: 96px;
+        --h2-font-size: 16px;
     }
 }
 
@@ -281,17 +166,7 @@
  * Themes
  */
 
-.u-theme1 {
-    --bg-color: 248 250 252;
-}
-
-.u-theme2 {
-    --bg-color: 31 51 106;
-}
-
-.inverted,
-.transparent,
-.u-theme2 {
+.inverted {
     --text-color: 255 255 255 / 85%;
     --text-color-hc: 255 255 255;
     --text-color-lc: 255 255 255 / 50%;
@@ -301,9 +176,6 @@
 
     --h1-color: 255 255 255;
     --h2-color: 255 255 255;
-    --h3-color: 255 255 255;
-    --h4-color: 255 255 255;
-    --h5-color: 255 255 255;
 
     --btn-bg-color: var(--btn-inverted-bg-color);
     --btn-bg-color-hover: var(--btn-inverted-bg-color-hover);
@@ -331,10 +203,10 @@
 $grid-columns: 12 !default;
 
 $screens: (
-    xs: 320px,
-    s: 375px,
-    m: 768px,
-    l: 1024px,
+    xs: 375px,
+    s: 768px,
+    m: 1024px,
+    l: 1280px,
     xl: 1440px,
 ) !default;
 

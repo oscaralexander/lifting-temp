@@ -5,19 +5,51 @@
         <meta content="IE=edge" http-equiv="X-UA-Compatible">
         <meta content="initial-scale=1.0,viewport-fit=cover,width=device-width" name="viewport">
         <title>Lifting Inspections</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+        <link as="style" href="/assets/css/app.css" rel="preload">
         <link href="/assets/css/app.css" rel="stylesheet" type="text/css">
         <script src="/assets/js/index.js"></script>
+        <script src="https://unpkg.com/lucide@latest"></script>
     </head>
     <body>
-        <div class="page">
-
+        <div class="page js-page">
+            <div class="page__backdrop js-pageBackdrop">
+                <img alt="" src="/assets/img/hero.jpg">
+            </div>
+            <main class="page__main">
+                <div class="page__content">
+                    <img alt="Lifting Inspections" class="page__logo" src="/assets/img/lifting-inspections.svg">
+                    <div class="page__text inverted">
+                        <header class="page__header">
+                            <h2 class="animateIn">Lorem ipsum dolor sit amet</h2>
+                            <h1 class="textSplit js-textSplit">Veiligheid boven alles</h1>
+                            <div class="page__intro animateIn animateIn--delay3">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lorem magna, fermentum vestibulum est eu, porttitor tristique dui. Nunc suscipit risus ut lectus pulvinar ultricies. Nulla laoreet vehicula sapien fringilla tristique. Donec suscipit dignissim tellus, eget rutrum dui commodo quis.
+                                </p>
+                            </div>
+                        </header>
+                        <div class="page__ctas animateIn animateIn--delay4">
+                            <a class="btn" href="tel:+31881051010">
+                                <i data-lucide="phone"></i>
+                                <span>Bel ons</span>
+                            </a>
+                            <a class="btn" href="mailto:info@liftinginspections.nl">
+                                <i data-lucide="mail"></i>
+                                <span>Mail ons</span>
+                            </a>
+                        </div>
+                        <ul class="contact animateIn animateIn--delay5">
+                            <li><a href="https://maps.app.goo.gl/pebxpWTAtFDGKXLV6" target="_blank">Stijkviertel 20, Utrecht</a></li>
+                            <li><a href="mailto:info@liftinginspections.nl">info@liftinginspections.nl</a></li>
+                            <li><a href="tel:+31881051010">+31 (0)88 105 10 10</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </main>
         </div>
-        <header class="header">
-            <h1>Lifting Inspections</h1>
-            <p></p>
-        </header>
-        <footer class="footer">
-
-        </footer> 
+        <script>lucide.createIcons();</script>
     </body>
 </html>

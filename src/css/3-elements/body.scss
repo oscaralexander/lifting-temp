@@ -1,7 +1,7 @@
 body {
     background-color: rgb(var(--bg-color-tint));
     color: rgb(var(--text-color));
-    font-family: $font-1;
+    font-family: var(--font-1);
     font-weight: 400;
     min-height: 100vh;
     line-height: var(--line-height-m);

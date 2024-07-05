@@ -1,0 +1,17 @@
+@keyframes animateIn {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 1em, 0);
+    }
+}
+
+.animateIn {
+    --delay: 150ms;
+    animation: animateIn 1s ease both;
+
+    @for $i from 1 through 10 {
+        &--delay#{$i} {
+            animation-delay: calc(var(--delay) * #{$i});
+        }
+    }
+}

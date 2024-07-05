@@ -1,12 +1,12 @@
 import App from './App';
-import Equinox from './components/Equinox';
+import Page from './components/Page';
 import TextSplit from './components/TextSplit';
 
 window.addEventListener('DOMContentLoaded', () => {
     window.__APP__ = new App([
         {
-            component: Equinox,
-            name: 'equinox',
+            component: Page,
+            name: 'page',
         },
         {
             component: TextSplit,

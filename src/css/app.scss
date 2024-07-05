@@ -4,11 +4,23 @@
 
 // 1. Settings
 @import './1-settings/variables';
+@import './1-settings/fonts';
 
 // 2. Mixins
 @import './2-tools/mixins';
 
 // 3. Elements
-body {
-    background: blue;
-}
+@import './3-elements/_';
+@import './3-elements/a';
+@import './3-elements/body';
+@import './3-elements/button';
+@import './3-elements/h1';
+@import './3-elements/h2';
+@import './3-elements/img';
+
+// 4. Components
+@import './4-components/animate-in';
+@import './4-components/btn';
+@import './4-components/contact';
+@import './4-components/page';
+@import './4-components/text-split';
