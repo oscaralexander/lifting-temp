@@ -8,15 +8,15 @@
     #{$selector} {
         margin: ($val * -0.5);
 
-        & > .grid__col {
+        &>.grid__col {
             border-width: ($val * 0.5);
         }
 
         @include screen-max(m) {
             &.grid--scrolling {
                 gap: $val;
-    
-                & > .grid__col {
+
+                &>.grid__col {
                     border-width: 0;
                 }
             }
@@ -46,6 +46,10 @@
         &--start {
             align-self: flex-start;
         }
+    }
+
+    &--baseline {
+        align-items: baseline;
     }
 
     &--between {

@@ -65,35 +65,74 @@
             width: 100vw;
 
             img {
-                object-position: 72.5% 50%;
+                object-position: center center;
             }
+        }
+
+        &__backdropDesktop {
+            display: none;
         }
 
         &__main {
             background-image: linear-gradient(to bottom, rgb(var(--color-1) / 0%) 25vw, rgb(var(--color-1) / 100%) 150vw, rgb(0 0 0));
             min-height: 100vh;
             padding: 85vw 24px 40px 24px;
+
+            &::before {
+                background-image: linear-gradient(to bottom right, rgb(var(--color-1)), rgb(var(--color-1) / 0%) 75vw);
+                content: '';
+                height: 100vw;
+                left: 0;
+                pointer-events: none;
+                position: fixed;
+                top: 0;
+                width: 100%;
+                z-index: 1;
+            }
+        }
+
+        &__content {
+            position: relative;
+            z-index: 2;
         }
 
         &__logo {
-            height: 3rem;
+            height: 3.5rem;
             pointer-events: none;
             position: fixed;
             top: 32px;
             transition: opacity .5s;
+            z-index: 3;
+
 
             .is-hideLogo & {
                 opacity: 0;
             }
         }
 
-        &__content {
-        }
-
         &__ctas {
             .btn {
                 flex: 1;
             }
+        }
+    }
+
+    @include screen-min(s) {
+        &__main {
+            background-image: linear-gradient(60deg,
+                rgb(var(--color-1) / 100%),
+                rgb(0 0 0 / 75%) 50%,
+                rgb(0 0 0 / 0%) 75%
+            );
+            color: #FFF;
+            display: flex;
+            flex: 1;
+            gap: 64px;
+            padding: 64px;
+        }
+
+        &__content {
+            justify-content: flex-end;
         }
     }
 
@@ -106,10 +145,9 @@
             display: none;
         }
 
-        &__backdropParallax {
+        &__backdropDesktop {
             display: block;
             height: 100%;
-            will-change: transform;
             width: 100%;
         }
 
@@ -137,7 +175,7 @@
         }
 
         &__logo {
-            height: 3rem;
+            height: 3.5rem;
             margin-bottom: 2rem;
         }
 
@@ -148,7 +186,7 @@
 
     @include screen-min(xl) {
         &__logo {
-            height: 4rem;
+            height: 5rem;
         }
 
         &__text {
