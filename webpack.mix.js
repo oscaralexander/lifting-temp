@@ -6,5 +6,5 @@ mix.js('src/js/index.js', 'public/assets/js')
     .browserSync({
         files: ['public/assets/css/*.css', 'public/assets/js/*.js'],
         https: true,
-        proxy: 'liftinginspections-temp.ddev.site',
+        proxy: 'lifting-temp.ddev.site',
     });
